@@ -17,6 +17,12 @@ class ModelAdmin(object):
     def verbose_name(self):
         return str(self.model._meta.verbose_name)
 
+    def app_label(self):
+        return str(self.model._meta.app_label)
+
+    def model_name(self):
+        return str(self.model._meta.model_name)
+
 
 
 class AppStore(object):

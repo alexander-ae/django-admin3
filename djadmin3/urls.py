@@ -10,13 +10,13 @@ urlpatterns = [
     url(
         regex=r'^$',
         view=views.IndexView.as_view(),
-        name="index"
+        name="admin3_index"
     ),
-    # url(
-    #     regex=r'^(?P<app_label>[_\-\w]+)/(?P<model_name>[_\-\w]+)/$',
-    #     view=views.ModelListView.as_view(),
-    #     name="model_list"
-    # ),
+    url(
+        regex=r'^(?P<app_label>[_\-\w]+)/(?P<model_name>[_\-\w]+)/$',
+        view=views.ModelListView.as_view(),
+        name="admin3_model_list"
+    ),
     # url(
     #     regex=r'^(?P<app_label>[_\-\w]+)/(?P<model_name>[_\-\w]+)/(?P<id>[\w]+)/$',
     #     view=views.ModelDetailView.as_view(),

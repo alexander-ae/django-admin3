@@ -4,10 +4,12 @@
 
 {% for group in groups %}
     <div>
-        <h2>{{ group.app_name }}</h2>
+        <h2>{{ group.app_name|capfirst }}</h2>
         <ul>
             {% for modelAdmin in group.obj.models %}
-                <li>{{ modelAdmin }} - {{ modelAdmin.verbose_name }}</li>
+                <li>{{ modelAdmin }} - <a
+                        href="{% url 'admin3_model_list' app_label=modelAdmin.app_label model_name=modelAdmin.model_name %}">{{ modelAdmin.verbose_name|capfirst }}</a>
+                </li>
             {% endfor %}
         </ul>
     </div>

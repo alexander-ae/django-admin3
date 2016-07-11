@@ -1,0 +1,16 @@
+<html>
+<body>
+<h1>Index</h1>
+
+{% for group in groups %}
+    <div>
+        <h2>{{ group.app_name }}</h2>
+        <ul>
+            {% for modelAdmin in group.obj.models %}
+                <li>{{ modelAdmin }} - {{ modelAdmin.model }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endfor %}
+</body>
+</html>

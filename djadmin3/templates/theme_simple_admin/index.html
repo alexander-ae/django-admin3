@@ -7,7 +7,7 @@
         <h2>{{ group.app_name }}</h2>
         <ul>
             {% for modelAdmin in group.obj.models %}
-                <li>{{ modelAdmin }} - {{ modelAdmin.model }}</li>
+                <li>{{ modelAdmin }} - {{ modelAdmin.verbose_name }}</li>
             {% endfor %}
         </ul>
     </div>

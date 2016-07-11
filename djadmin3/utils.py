@@ -5,12 +5,18 @@ from django.conf import settings
 
 class ModelAdmin(object):
     djadmin3_enabled = True
+    model = None
 
     # def __init__(self):
     #      self.model =self.model
     #
-    # def __str__(self):
-    #     return self.model
+
+    def __str__(self):
+        return str(self.model)
+
+    def verbose_name(self):
+        return str(self.model._meta.verbose_name)
+
 
 
 class AppStore(object):
@@ -21,8 +27,9 @@ class AppStore(object):
         for key in module.__dict__.keys():
             model_candidate = getattr(module, key)
             if hasattr(model_candidate, 'djadmin3_enabled') and hasattr(model_candidate, 'model'):
-                print("model_candidate: " + str(model_candidate))
-                self.add_model(model_candidate)
+                if model_candidate.model:
+                    print("model_candidate: " + str(model_candidate))
+                    self.add_model(model_candidate)
 
     def add_model(self, model):
         model.name = model.__name__
